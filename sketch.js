@@ -67,7 +67,7 @@ function initSorting(){
 		if(answer == 0)bs = new bubbleSort(myArrayCopy);
 	if(answer == 1)bs = new selectionSort(myArrayCopy);
 	if(answer == 2)bs = new insertionSort(myArrayCopy);
-	if(answer == 3)bs = new heapSort(myArrayCopy);	
+	if(answer == 3)bs = new mergeSort(myArrayCopy);	
 	if(answer == 4)bs = new shellSort(myArrayCopy);
 	initialized = true;
 }
@@ -83,8 +83,8 @@ function filltheArray(arr, arrSize){
 function drawWaveForm(){
 	var spectrum = fft.analyze();
   	noStroke();
-  	fill(200); // spectrum is green
-  	for (var i = 0; i< spectrum.length; i++){
+  	fill(0, 200, 0); // spectrum is green
+  	for (var i = 0; i< spectrum.length; i+=5){
 	    var x = map(i, 0, spectrum.length, 0, width);
 	    var h = -height + map(spectrum[i], 0, 255, height, 0);
 	    rect(x, height, width / spectrum.length, h )
