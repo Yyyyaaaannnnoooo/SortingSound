@@ -15,8 +15,10 @@ function heapSort(arr){
 		if(!done){
 			if(mid >= 0){
 				// mid--;
-				siftDown(this.a, mid--, len-1); 
-			}else if(end > 0){								
+				siftDown(this.a, mid--, len-1);
+				return; 
+			}
+			if(end > 0){								
 				// end--;
 				swap(this.a, end--, 0);				
 				siftDown(this.a, 0, end);

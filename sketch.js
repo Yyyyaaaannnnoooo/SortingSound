@@ -64,11 +64,12 @@ function initSorting(){
 	let answer = select.options[select.selectedIndex].value;
 	let myArrayCopy = [];
 	for(let i = 0; i < myArray.length; i++)myArrayCopy[i] = myArray[i];//this should 
-		if(answer == 0)bs = new bubbleSort(myArrayCopy);
+	if(answer == 0)bs = new bubbleSort(myArrayCopy);
 	if(answer == 1)bs = new selectionSort(myArrayCopy);
 	if(answer == 2)bs = new insertionSort(myArrayCopy);
 	if(answer == 3)bs = new mergeSort(myArrayCopy);	
-	if(answer == 4)bs = new shellSort(myArrayCopy);
+	if(answer == 4)bs = new quickSort(myArrayCopy);
+	if(answer == 5)bs = new shellSort(myArrayCopy);
 	initialized = true;
 }
 
