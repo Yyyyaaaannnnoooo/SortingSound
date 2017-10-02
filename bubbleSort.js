@@ -1,7 +1,6 @@
-function bubbleSort(arr){
-	// let BGText = arr.toString(), tempTxt; 	
+function bubbleSort(arr){	
 	osc.amp(0.5, 0.5);
-  	volumUp();
+  	volumeUp();
 	let done = false;
 	this.a = arr;
 	let len = this.a.length, i = len - 1, j = 1;
@@ -22,11 +21,6 @@ function bubbleSort(arr){
 				osc.amp(0, 1);
 				volume0();
 			}
-			// tempTxt = this.a.toString();
-			// BGText = tempTxt.concat("\n", BGText);
-			// noStroke();
-			// text(BGText, 0, 0, w, h);
-			// console.log(BGText);
 		}
 	}
 

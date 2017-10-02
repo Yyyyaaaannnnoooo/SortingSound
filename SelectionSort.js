@@ -1,6 +1,5 @@
 function selectionSort(arr){
-  osc.amp(0.5, 0.5);
-  volumUp();
+  volumeUp();
   let done = false;
   this.a = arr;
   let len = this.a.length, i = 0, j = i + 1, minIdx;
@@ -25,8 +24,6 @@ function selectionSort(arr){
         volume0();
         osc.amp(0, 0.5);
       }
-      // console.log(BGText);
-      //console.log(this.a);
     }
   }
   this.show = function(){

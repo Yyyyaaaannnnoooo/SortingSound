@@ -1,6 +1,6 @@
 function quickSort(arr){
-  osc.amp(0.5, 0.5);
-  volumUp();
+  // osc.amp(0.5, 0.5);
+  // volumeUp();
   let done = false, isInitialized, stillIn = false;
   this.a = arr;
   let len = this.a.length, currentDiv = -1, currentL = - 1, currentR = -1,
@@ -31,7 +31,6 @@ function quickSort(arr){
         done = true;
         console.log("done");
         volume0();
-        osc.amp(0, 0.5);
       }
     }
   }

@@ -1,6 +1,6 @@
 function mergeSort(arr){
   osc.amp(0.5, 0.5);
-  volumUp();
+  volumeUp();
   let done = false, merging = false;
   this.a = arr; 
   console.log(this.a);

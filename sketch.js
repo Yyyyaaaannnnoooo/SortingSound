@@ -22,9 +22,6 @@ function setup(){
 	textFont(mono);
 	textSize(5);
 	txtCanvas = document.getElementById("txtCanvas");
-	// txtCanvas.position(0, 0);
-	// txtCanvas.size(w, h);
-	//
 	//slider
 	arraySizeSlider = createSlider
 	//
@@ -35,16 +32,13 @@ function setup(){
 	// initialize the sound library
 	osc = new p5.Oscillator();
 	osc.setType('sine');
-	// osc.freq(240);
-
 	fft = new p5.FFT();
 	env = new p5.Env();
-	// set attackTime, decayTime, sustainRatio, releaseTime
 	env.setADSR(0.001, 0.5, 0.1, 0.5);
 	env.setRange(1, 0);
-	osc.amp(0.0);
-	osc.start();	
-	bs = new bubbleSort(myArray);
+	osc.start();
+	volume0();	
+	// bs = new bubbleSort(myArray);
 }
 
 function draw (){
@@ -52,15 +46,17 @@ function draw (){
 	noStroke();
 	fill(255, 10);
 	rect(0, 0, w, h);
-	if(bs != null && play){
-		if(speedController > 0){
-			for(let i = 0; i < speedController; i++)bs.update();
-		}else{
-			if(frameCount % speedController == 0)bs.update();
-		}
+	if(bs != null){
+		if(play){
+			if(speedController > 0){
+				for(let i = 0; i < speedController; i++)bs.update();
+			}else{
+				if(frameCount % speedController == 0)bs.update();
+			}
+	}
 		bs.show();
 	}else{
-		show(myArray, null, null);
+		show(myArray, null, null, false);
 	}
 }
 
@@ -86,34 +82,11 @@ function filltheArray(arr, arrSize){
 	return arr;
 }
 
-function drawWaveForm(){// useless :(
-	var spectrum = fft.analyze();
-	noStroke();
-	fill(0, 200, 0); // spectrum is green
-	for (var i = 0; i< spectrum.length; i+=5){
-		var x = map(i, 0, spectrum.length, 0, width);
-		var h = -height + map(spectrum[i], 0, 255, height, 0);
-		rect(x, height, width / spectrum.length, h )
-	}
-// var waveform = fft.waveform();  // analyze the waveform
-// noFill();
-// stroke(200);
-// beginShape();
-// strokeWeight(1);
-// for (var i = 0; i < waveform.length; i++){
-// 	var x = map(i, 0, waveform.length, 0, width);
-// 	var y = map(waveform[i], -1, 1, height, 0);
-// 	vertex(x, y);
-// }
-// endShape();
-}
-
 function resizeArray(){
 	let theArraySize = document.getElementById("arraySize").value;
 	theArraySize = floor(map(theArraySize, 0, 100, 20, floor(w / barSpacing)));	
 	console.log(theArraySize);
-	myArray = filltheArray(myArray, theArraySize);	
-	BGText = myArray.toString();
+	myArray = filltheArray(myArray, theArraySize);
 	if(initialized)initSorting()
 }
 
@@ -135,11 +108,12 @@ function timeWarp(){
 }
 function playPause(){//add a ot of stuff like what when the 
 	play = !play;
+	initSorting();
 	let txt;
 	if(play){
 		txt = 'PAUSE';
-		volumUp();
-		} else{
+		volumeUp();
+		}else{
 			txt = 'PLAY';
 			volume0();
 		}

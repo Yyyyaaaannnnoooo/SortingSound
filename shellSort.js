@@ -14,8 +14,7 @@ function shellSort(arr) {
     }
     return gaps;
   }
-  osc.amp(0.5, 0.5);
-  volumUp();
+  volumeUp();
   let gaps = createGaps(arr);
   let done = false;
   this.a = arr;
@@ -42,7 +41,6 @@ function shellSort(arr) {
         volume0();       
         done = true;
       }
-      // console.log(this.a);
     }
   }
 

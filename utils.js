@@ -1,10 +1,4 @@
 function show(arr, idx1, idx2){
-  	  // BGText = arr.toString();
-  	  // let tempTxt = arr.toString();
-     //  BGText = tempTxt.concat("\n", BGText);
-     //  txtCanvas.innerHTML = BGText;
-           //  noStroke();
-     //  text(BGText, 0, 0, w, h);
 	for (let i = 0; i < arr.length; i++) {
 		if(i == idx1)stroke(cyan);
 		else if(i == idx2){
@@ -40,6 +34,6 @@ function volume0(){
 	masterVolume(0, 0.5);
 }
 
-function volumUp(){	
+function volumeUp(){	
 	masterVolume(1, 0.5);
 }

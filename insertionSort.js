@@ -1,8 +1,6 @@
 function insertionSort(arr){
-  // let BGText = arr.toString(), tempTxt; 
-  osc.amp(0.5, 0.5);
   let done = false;
-  volumUp();
+  volumeUp();
   this.a = arr;
   let i = 0, len = this.a.length, j;
   let temp = this.a[i]; 
@@ -24,12 +22,6 @@ function insertionSort(arr){
         done = true;
         console.log('done');
       }
-      // tempTxt = this.a.toString();
-      // BGText = tempTxt.concat("\n", BGText);
-      // noStroke();
-      // text(BGText, 0, 0, w, h);
-      // console.log(BGText);
-      //console.log(this.a);
     }
   }
 
