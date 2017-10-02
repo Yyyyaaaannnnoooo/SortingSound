@@ -1,13 +1,14 @@
 function quickSort(arr){
   // osc.amp(0.5, 0.5);
   // volumeUp();
-  let done = false, isInitialized, stillIn = false;
+  this.done = false;
   this.a = arr;
   let len = this.a.length, currentDiv = -1, currentL = - 1, currentR = -1,
-  divResult = -1, divI = 0, divJ = 0, divPivot = 0, next = null, heap = [];
+  divResult = -1, divI = 0, divJ = 0, divPivot = 0, next = null, heap = [],
+  isInitialized, stillIn = false;
   heap.push(new step(0, len - 1));
   this.update = function(){ 
-    if(!done){
+    if(!this.done){
       if (heap.length > 0){
         if(next == null)next = heap[heap.length - 1];
         if (divResult == -1 && next.l < next.r){
@@ -28,14 +29,13 @@ function quickSort(arr){
         }
       }
       if(isSorted(this.a)){
-        done = true;
+        this.done = true;
         console.log("done");
         volume0();
       }
     }
   }
   this.show = function(){
-    // show(this.a, divI, currentL);
     for (let i = 0; i < this.a.length; i++) {
       if(i == currentL || i == currentR)stroke(cyan);
       else if(i == divI || i == divJ){

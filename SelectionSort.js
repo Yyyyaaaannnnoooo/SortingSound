@@ -1,6 +1,6 @@
 function selectionSort(arr){
   volumeUp();
-  let done = false;
+  this.done = false;
   this.a = arr;
   let len = this.a.length, i = 0, j = i + 1, minIdx;
   function swap(array, i, j){
@@ -9,7 +9,7 @@ function selectionSort(arr){
     array[j] = temp;
   } 
   this.update = function(){ 
-    if(!done){
+    if(!this.done){
       minIdx = i;
       if(this.a[j] < this.a[minIdx]) minIdx = j;
       j++;
@@ -19,7 +19,7 @@ function selectionSort(arr){
         j = i + 1;
       }
       if(i >= len || isSorted(this.a)){
-        done = true;
+        this.done = true;
         console.log("done");
         volume0();
         osc.amp(0, 0.5);

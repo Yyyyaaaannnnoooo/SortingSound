@@ -16,11 +16,11 @@ function shellSort(arr) {
   }
   volumeUp();
   let gaps = createGaps(arr);
-  let done = false;
+  this.done = false;
   this.a = arr;
   let g = 0, gap = gaps[g], i = gap, j = i, len = this.a.length, temp = this.a[i];
   this.update = function(){
-    if(!done){
+    if(!this.done){
       gap = gaps[g]  
       temp = this.a[i];//chnged     
       if(j >= gap && this.a[j - gap] > temp){
@@ -39,7 +39,7 @@ function shellSort(arr) {
       // if(g >= gaps.length)g = 0;      
       if(g > gaps.length || isSorted(this.a)){
         volume0();       
-        done = true;
+        this.done = true;
       }
     }
   }

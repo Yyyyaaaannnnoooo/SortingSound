@@ -1,11 +1,11 @@
 function insertionSort(arr){
-  let done = false;
+  this.done = false;
   volumeUp();
   this.a = arr;
   let i = 0, len = this.a.length, j;
   let temp = this.a[i]; 
   this.update = function(){
-    if(!done){
+    if(!this.done){
       temp = this.a[i];
       if(j >= 0 && this.a[j] > temp){
         this.a[j + 1] = this.a[j];
@@ -19,7 +19,7 @@ function insertionSort(arr){
       if(isSorted(this.a)){
         osc.amp(0, 1);
         volume0();
-        done = true;
+        this.done = true;
         console.log('done');
       }
     }

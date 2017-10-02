@@ -55,6 +55,10 @@ function draw (){
 			}
 	}
 		bs.show();
+		if(bs.done){
+			play = false;
+			document.getElementById("playPause").innerHTML = 'PLAY';
+		}
 	}else{
 		show(myArray, null, null, false);
 	}
@@ -87,7 +91,7 @@ function resizeArray(){
 	theArraySize = floor(map(theArraySize, 0, 100, 20, floor(w / barSpacing)));	
 	console.log(theArraySize);
 	myArray = filltheArray(myArray, theArraySize);
-	if(initialized)initSorting()
+	// if(initialized)initSorting()
 }
 
 function setWave(){	
@@ -108,7 +112,8 @@ function timeWarp(){
 }
 function playPause(){//add a ot of stuff like what when the 
 	play = !play;
-	initSorting();
+	setWave();
+	initSorting();	
 	let txt;
 	if(play){
 		txt = 'PAUSE';

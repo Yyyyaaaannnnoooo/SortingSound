@@ -1,17 +1,17 @@
 function mergeSort(arr){
   osc.amp(0.5, 0.5);
   volumeUp();
-  let done = false, merging = false;
+  this.done = false;
   this.a = arr; 
   console.log(this.a);
   let len = this.a.length, next,
-  tree = [], curMid, curC, workL = [], workR = [], j = 0;
+  tree = [], curMid, curC, workL = [], workR = [], j = 0,  merging = false;
   initTree(0, len - 1);
   this.update = function(){ 
-    if(!done){
+    if(!this.done){
       //write here steps
       if(isSorted(this.a) || (tree.length == 0 && !merging)){
-        done = true;
+        this.done = true;
         console.log("done");
         volume0();
         osc.amp(0, 0.5);
@@ -21,7 +21,7 @@ function mergeSort(arr){
         next = tree[0];
         let mid = floor((next.l + next.r) / 2);
         remergeStart(mid, this.a);
-        tree.splice(0, 1);
+        tree.splice(0, 1);//consider revising here doing the same as in quicksort
         j = next.r - workR.length;
       }
     }
@@ -32,7 +32,6 @@ function mergeSort(arr){
   
   function remergeStep(arr){
     if (workL.length > 0 && workR.length > 0) {
-      // compCount++;
       if (workL[0] < workR[0]) {
         arr[curC] = workL[0];
         workL.splice(0, 1);
