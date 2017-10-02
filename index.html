@@ -14,6 +14,27 @@
 	<script src="heapSort.js"></script>
 	<script src="utils.js"></script>
 	<style>
+	/*class array text*/
+	.array{
+		text-align: justify;
+		width: 100%;
+		font-family: monospace;
+		font-size: 10px;
+	}
+	.waves{
+		position:fixed;
+		top: 55px;
+		left: 5px;
+		background: #fff;
+		color: #000;
+		padding: 0px;
+		font-family: Helvetica;
+		font-weight: bolder;
+		font-size: 20px;
+		border: none;
+		cursor: ne-resize;
+		z-index: 1;
+	}
 	/*class kernel*/
 	.kernels{
 		position:fixed;
@@ -80,21 +101,24 @@
 			<option value="0" selected>BUBBLE SORT</option>
 			<option value="1">SELECTION SORT</option>
 			<option value="2">INSERTION SORT</option>
-			<!--<option value="PARTIALBURKE">PARTIALBURKE</option>
-			<option value="INVERTEDSTEINBERG">INVERTEDSTEINBERG</option>
-			<option value="SLANTED">SLANTED</option>
-			<option value="COOL01">COOL01</option>
-			<option value="COOL02">COOL02</option>
-			<option value="COOL03">COOL03</option>
-			<option value="COOL04">COOL04</option>
-			<option value="COOL05">COOL05</option>
-			<option value="COOL02">COOL06</option>
-			<option value="CHRIS">CHRIS</option>
-			<option value="STRUCTURE">STRUCTURE</option>-->
+			<!--<option value="3">HEAP SORT</option>-->
+			<option value="4">SHELL SORT</option>
+		</select>
+	</div>
+	<body bgcolor="#FFF">
+	<div class="waves">
+		<select id="waveForm" onchange="setWave()">
+			<option value="0" selected>SINE WAVE</option>
+			<option value="1">TRIANGLE</option>
+			<option value="2">SAWTOOTH</option>
+			<option value="3">SQUARE</option>
 		</select>
 	</div>
 	<div class="inputRange">
 		<input type="range" id="arraySize" value="50" onchange="resizeArray()">
+	</div>
+	<div class="array">
+		<p id="txtCanvas"></p>
 	</div>
 </body>
 </html>

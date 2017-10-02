@@ -1,47 +1,52 @@
-
-
 function shellSort(arr) {
-  // for(var g = 0; g < gaps.length; g++) {
-  //   var gap = gaps[g];
-  //   for(var i = gap; i < array.length; i++) {
-  //     var temp = array[i];
-  //     for(var j = i; j >= gap && array[j - gap] > temp; j -= gap) {
-  //       array[j] = array[j - gap];
-  //     }
-  //     array[j] = temp;
-  //   }
-  // }
-  // return array;
-  let gaps = [];
-  for (let i = 0; i < arr.length; i++) {
-    gaps.push(floor(random(100)));
+  function createGaps(a) {
+    // if a is an array of 100, gaps would be [50, 25, 12, 6, 3, 1]
+    let gaps = [];
+    for (var i = 0, j = a.length, t; 1 <= (t = Math.floor(j / Math.pow(2, i + 1))); i += 1) {
+      gaps[i] = t;
+
+      if (t === 1) {
+        break;
+      }
+    }
+    if (gaps[i] !== 1) {
+      gaps.push(1);
+    }
+    return gaps;
   }
+  osc.amp(0.5, 0.5);
+  volumUp();
+  let gaps = createGaps(arr);
   let done = false;
   this.a = arr;
-  let g = 0, i = g, j = i, len = this.a.length;
+  let g = 0, gap = gaps[g], i = gap, j = i, len = this.a.length, temp = this.a[i];
   this.update = function(){
     if(!done){
-      let temp = this.a[i];
-      let gap = gaps[g];
-      if(j >= gap && this.a[j - gap] > temp){        
+      gap = gaps[g]  
+      temp = this.a[i];//chnged     
+      if(j >= gap && this.a[j - gap] > temp){
         this.a[j] = this.a[j - gap];
-      }
-      else{            
         j -= gap;
-        j = i;
-        i++;      
       }
+      else{
+        this.a[j] = temp;     
+        j = i;  
+        i++;    
+      } 
       if(i >= len){
-        g++;
-        i = g;
+        i = gap;
+        g++;        
+      }  
+      // if(g >= gaps.length)g = 0;      
+      if(g > gaps.length || isSorted(this.a)){
+        volume0();       
+        done = true;
       }
-      this.a[j] = temp;
-      if(isSorted(this.a))done = true;
-      console.log(this.a);
+      // console.log(this.a);
     }
   }
 
   this.show = function(){
-    show(this.a);
+    show(this.a, i, j);
   }
 }

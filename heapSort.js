@@ -14,21 +14,21 @@ function heapSort(arr){
 	this.update = function(){
 		if(!done){
 			if(mid >= 0){
-				mid--;
-				siftDown(this.a, mid, len-1); 
+				// mid--;
+				siftDown(this.a, mid--, len-1); 
 			}else if(end > 0){								
-				end--;
-				swap(this.a, end, 0);				
+				// end--;
+				swap(this.a, end--, 0);				
 				siftDown(this.a, 0, end);
 			}
-			console.log(this.a);
-			console.log(end);
-			if(isSorted(this.a) || end <= 0)done = true;
+			// console.log(this.a);
+			console.log(mid, end);
+			if(isSorted(this.a))done = true;
 		}
 	}
 
 	this.show = function(){
-		show(this.a);
+		show(this.a, mid, end, done);
 	}
 	// function heapify(arr, len){
 	//    // break the array into rooot + two sides, to create tree (heap)
@@ -38,13 +38,15 @@ function heapSort(arr){
 	// 	   }
 	// 	}
 	function siftDown(arr, start, end){
-		let rooot = start, child = rooot*2 + 1, toSwap = rooot;
+		let rooot = start, 
+			child = rooot * 2 + 1, 
+			toSwap = rooot;
 		while(child <= end){
 			if(arr[toSwap] < arr[child]){
 				swap(arr, toSwap, child);
 			}
 			if(child+1 <= end && arr[toSwap] < arr[child+1]){
-				swap(arr, toSwap, child+1)
+				swap(arr, toSwap, child + 1)
 			}
 			if(toSwap != rooot){
 				swap(arr, rooot, toSwap);

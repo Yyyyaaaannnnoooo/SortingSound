@@ -1,10 +1,11 @@
 function insertionSort(arr){
+  // let BGText = arr.toString(), tempTxt; 
   osc.amp(0.5, 0.5);
   let done = false;
+  volumUp();
   this.a = arr;
   let i = 0, len = this.a.length, j;
   let temp = this.a[i]; 
-  console.log(i, j);
   this.update = function(){
     if(!done){
       temp = this.a[i];
@@ -17,12 +18,22 @@ function insertionSort(arr){
         i++;
       }
       if(i >= len)i = 0;
-      if(isSorted(this.a))done = true;
+      if(isSorted(this.a)){
+        osc.amp(0, 1);
+        volume0();
+        done = true;
+        console.log('done');
+      }
+      // tempTxt = this.a.toString();
+      // BGText = tempTxt.concat("\n", BGText);
+      // noStroke();
+      // text(BGText, 0, 0, w, h);
+      // console.log(BGText);
       //console.log(this.a);
     }
   }
 
   this.show = function(){
-    show(this.a, i, j, done);
+    show(this.a, i, j);
   }
 }
