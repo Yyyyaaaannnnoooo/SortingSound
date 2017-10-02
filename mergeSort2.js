@@ -24,7 +24,6 @@ function mergeSort(arr){
         tree.splice(0, 1);
         j = next.r - workR.length;
       }
-      console.log(this.a);
     }
   }
   this.show = function(){

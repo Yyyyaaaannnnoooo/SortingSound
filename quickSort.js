@@ -8,7 +8,6 @@ function quickSort(arr){
   heap.push(new step(0, len - 1));
   this.update = function(){ 
     if(!done){
-      //write here steps
       if (heap.length > 0){
         if(next == null)next = heap[heap.length - 1];
         if (divResult == -1 && next.l < next.r){
@@ -34,7 +33,6 @@ function quickSort(arr){
         volume0();
         osc.amp(0, 0.5);
       }
-      // console.log(this.a);
     }
   }
   this.show = function(){
@@ -64,12 +62,10 @@ function quickSort(arr){
       divPivot = arr[right];
       isInitialized = true;
     }
-    // compCount++;
     if(divI < right && arr[divI] <= divPivot){
       divI++;
       return;
     }
-    // compCount++;
     if(divJ > left && arr[divJ] >= divPivot){
       divJ--;
       return;
@@ -78,7 +74,6 @@ function quickSort(arr){
       swap(arr, divI, divJ);
       return;
     }
-    // compCount++;
     if (arr[divI] > divPivot){
       swap(arr, divI, right);
     }

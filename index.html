@@ -83,7 +83,8 @@
 	option:hover{
 		letter-spacing: 5px;
 	}
-	input{
+	input{		
+		background: #fff;
 		position: relative;
 		width: 200px;
 		border: solid 3px #000;
@@ -119,6 +120,7 @@
 	</div>
 	<div class="inputRange">
 		<input type="range" id="arraySize" value="50" onchange="resizeArray()">
+		<input type="range" top="55px" id="timeWarp" value="50" onchange="timeWarp()">
 	</div>
 	<div class="array">
 		<p id="txtCanvas"></p>
