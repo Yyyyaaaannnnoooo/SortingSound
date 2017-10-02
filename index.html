@@ -95,6 +95,11 @@
 	button{
 		background-color: #fff;
 		border: solid 3px #000;
+		font-family: Helvetica;
+		font-weight: bolder;
+		font-size: 20px;
+		padding-top: 3px;
+		padding-right: 3px;
 	}
 </style>
 </head>
@@ -120,7 +125,8 @@
 	</div>
 	<div class="inputRange">
 		<input type="range" id="arraySize" value="50" onchange="resizeArray()">
-		<input type="range" top="55px" id="timeWarp" value="50" onchange="timeWarp()">
+		<input type="range" top="55px" id="timeWarp" value="1" onchange="timeWarp()">
+		<button type="button" id="playPause" onclick="playPause()">PLAY</button>
 	</div>
 	<div class="array">
 		<p id="txtCanvas"></p>

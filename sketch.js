@@ -43,7 +43,8 @@ function setup(){
 	env.setADSR(0.001, 0.5, 0.1, 0.5);
 	env.setRange(1, 0);
 	osc.amp(0.0);
-	osc.start();
+	osc.start();	
+	bs = new bubbleSort(myArray);
 }
 
 function draw (){
@@ -51,7 +52,7 @@ function draw (){
 	noStroke();
 	fill(255, 10);
 	rect(0, 0, w, h);
-	if(bs != null){
+	if(bs != null && play){
 		if(speedController > 0){
 			for(let i = 0; i < speedController; i++)bs.update();
 		}else{
@@ -131,6 +132,18 @@ function timeWarp(){
 	speedController = floor(map(input, 0, 100, -10, 10));
 	if(speedController == 0)speedController = 1;
 	//if(speedController >= 0)speedController = floor(speedController);
+}
+function playPause(){//add a ot of stuff like what when the 
+	play = !play;
+	let txt;
+	if(play){
+		txt = 'PAUSE';
+		volumUp();
+		} else{
+			txt = 'PLAY';
+			volume0();
+		}
+	document.getElementById("playPause").innerHTML = txt;
 }
 
 
