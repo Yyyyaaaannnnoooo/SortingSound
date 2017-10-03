@@ -5,7 +5,7 @@ let bs, osc, fft, env,//audio is the sound library
 	arraySize = 50, myArray = [],//, myArrayCopy = [];
 	arraySizeSlider, 
 	barSpacing = 5, w, h, 
-	initialized = false, play = false,//consider adding a pause function
+	initialized = false, play = false, isPlaying = false,//consider adding a pause function
 	mono, BGText, txtCanvas, speedController = 1;//monospace font
 
 function preload(){
@@ -18,25 +18,17 @@ function setup(){
 	let cnv = createCanvas(w, h);
 	cyan = color(0, 255, 255);
 	magenta = color(255, 0, 255);
-	//declaring text
-	textFont(mono);
-	textSize(5);
-	txtCanvas = document.getElementById("txtCanvas");
-	//slider
-	arraySizeSlider = createSlider
-	//
 	background(51);
 	range = h / 2 - 100;
 	myArray = filltheArray(myArray, arraySize);
-	BGText = myArray.toString();
 	// initialize the sound library
 	osc = new p5.Oscillator();
 	osc.setType('sine');
 	fft = new p5.FFT();
 	env = new p5.Env();
+	osc.start();
 	env.setADSR(0.001, 0.5, 0.1, 0.5);
 	env.setRange(1, 0);
-	osc.start();
 	volume0();	
 	// bs = new bubbleSort(myArray);
 }
@@ -47,13 +39,11 @@ function draw (){
 	fill(255, 10);
 	rect(0, 0, w, h);
 	if(bs != null){
-		if(play){
-			if(speedController > 0){
-				for(let i = 0; i < speedController; i++)bs.update();
-			}else{
-				if(frameCount % speedController == 0)bs.update();
-			}
-	}
+		if(speedController > 0){
+			for(let i = 0; i < speedController; i++)bs.update(play);
+		}else{
+			if(frameCount % speedController == 0)bs.update(play);
+		}
 		bs.show();
 		if(bs.done){
 			play = false;
@@ -65,16 +55,18 @@ function draw (){
 }
 
 function initSorting(){
-	let select = document.getElementById("kernel");
-	let answer = select.options[select.selectedIndex].value;
-	let myArrayCopy = [];
-	for(let i = 0; i < myArray.length; i++)myArrayCopy[i] = myArray[i];//this should 
-	if(answer == 0)bs = new bubbleSort(myArrayCopy);
-	if(answer == 1)bs = new selectionSort(myArrayCopy);
-	if(answer == 2)bs = new insertionSort(myArrayCopy);
-	if(answer == 3)bs = new mergeSort(myArrayCopy);	
-	if(answer == 4)bs = new quickSort(myArrayCopy);
-	if(answer == 5)bs = new shellSort(myArrayCopy);
+	if(!isPlaying){
+		let select = document.getElementById("kernel");
+		let answer = select.options[select.selectedIndex].value;
+		let myArrayCopy = [];
+		arrayCopy(myArray, myArrayCopy, myArray.length);
+		if(answer == 0)bs = new bubbleSort(myArrayCopy);
+		if(answer == 1)bs = new selectionSort(myArrayCopy);
+		if(answer == 2)bs = new insertionSort(myArrayCopy);
+		if(answer == 3)bs = new mergeSort(myArrayCopy);	
+		if(answer == 4)bs = new quickSort(myArrayCopy);
+		if(answer == 5)bs = new shellSort(myArrayCopy);
+	}
 	initialized = true;
 }
 
@@ -91,7 +83,7 @@ function resizeArray(){
 	theArraySize = floor(map(theArraySize, 0, 100, 20, floor(w / barSpacing)));	
 	console.log(theArraySize);
 	myArray = filltheArray(myArray, theArraySize);
-	// if(initialized)initSorting()
+	if(initialized)initSorting()
 }
 
 function setWave(){	
@@ -113,7 +105,8 @@ function timeWarp(){
 function playPause(){//add a ot of stuff like what when the 
 	play = !play;
 	setWave();
-	initSorting();	
+	if(bs == null)initSorting();
+	if(bs != null && bs.done)initSorting();
 	let txt;
 	if(play){
 		txt = 'PAUSE';

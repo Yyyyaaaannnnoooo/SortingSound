@@ -1,5 +1,5 @@
 function selectionSort(arr){
-  volumeUp();
+  // volumeUp();
   this.done = false;
   this.a = arr;
   let len = this.a.length, i = 0, j = i + 1, minIdx;
@@ -8,8 +8,8 @@ function selectionSort(arr){
     array[i] = array[j];
     array[j] = temp;
   } 
-  this.update = function(){ 
-    if(!this.done){
+  this.update = function(playing){ 
+    if(!this.done && playing){
       minIdx = i;
       if(this.a[j] < this.a[minIdx]) minIdx = j;
       j++;

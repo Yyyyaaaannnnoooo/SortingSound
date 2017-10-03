@@ -1,14 +1,11 @@
 function mergeSort(arr){
-  osc.amp(0.5, 0.5);
-  volumeUp();
   this.done = false;
   this.a = arr; 
-  console.log(this.a);
   let len = this.a.length, next,
   tree = [], curMid, curC, workL = [], workR = [], j = 0,  merging = false;
   initTree(0, len - 1);
-  this.update = function(){ 
-    if(!this.done){
+  this.update = function(playing){ 
+    if(!this.done && playing){
       //write here steps
       if(isSorted(this.a) || (tree.length == 0 && !merging)){
         this.done = true;

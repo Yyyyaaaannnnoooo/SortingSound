@@ -7,8 +7,8 @@ function quickSort(arr){
   divResult = -1, divI = 0, divJ = 0, divPivot = 0, next = null, heap = [],
   isInitialized, stillIn = false;
   heap.push(new step(0, len - 1));
-  this.update = function(){ 
-    if(!this.done){
+  this.update = function(playing){ 
+    if(!this.done && playing){
       if (heap.length > 0){
         if(next == null)next = heap[heap.length - 1];
         if (divResult == -1 && next.l < next.r){

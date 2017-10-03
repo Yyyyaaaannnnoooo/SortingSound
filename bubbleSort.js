@@ -1,11 +1,11 @@
 function bubbleSort(arr){	
-	osc.amp(0.5, 0.5);
-  	volumeUp();
+	// osc.amp(0.5, 0.5);
+ //  	volumeUp();
 	this.done = false;
 	this.a = arr;
 	let len = this.a.length, i = len - 1, j = 1;
-	this.update = function(){
-		if(!this.done){
+	this.update = function(playing){
+		if(!this.done && playing){
 			if(this.a[j-1] > this.a[j]){
 				let temp = this.a[j-1];
 				this.a[j-1] = this.a[j];

@@ -14,13 +14,13 @@ function shellSort(arr) {
     }
     return gaps;
   }
-  volumeUp();
+  // volumeUp();
   let gaps = createGaps(arr);
   this.done = false;
   this.a = arr;
   let g = 0, gap = gaps[g], i = gap, j = i, len = this.a.length, temp = this.a[i];
-  this.update = function(){
-    if(!this.done){
+  this.update = function(playing){
+    if(!this.done && playing){
       gap = gaps[g]  
       temp = this.a[i];//chnged     
       if(j >= gap && this.a[j - gap] > temp){
