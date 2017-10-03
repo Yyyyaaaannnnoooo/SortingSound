@@ -43,8 +43,9 @@ function quickSort(arr){
         playSound(this.a[i]);
       } else stroke(0);
       strokeWeight(3);
-      let posX = floor((w / 2) - ((this.a.length * barSpacing) / 2));
-      line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - this.a[i]);
+      let posX = floor((w / 2) - ((this.a.length * barSpacing) / 2));      
+      drawLine(arr, posX, i);
+      // line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - this.a[i]);
     }
   }
 

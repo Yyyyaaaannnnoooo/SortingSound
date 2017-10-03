@@ -36,7 +36,7 @@ function setup(){
 function draw (){
 	// background(255);
 	noStroke();
-	fill(255, 10);
+	fill(255, 20);
 	rect(0, 0, w, h);
 	if(bs != null){
 		if(speedController > 0){
@@ -73,7 +73,7 @@ function initSorting(){
 function filltheArray(arr, arrSize){
 	arr = [];
 	for (let i = 0; i < arrSize; i++) {
-		arr.push(floor(random(-range, range)));
+		arr.push(floor(random(0, range)));
 	}
 	return arr;
 }

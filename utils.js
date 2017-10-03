@@ -1,22 +1,37 @@
 function show(arr, idx1, idx2){
+	strokeWeight(3);
+	noFill();
 	for (let i = 0; i < arr.length; i++) {
 		if(i == idx1)stroke(cyan);
 		else if(i == idx2){
 			stroke(magenta);
 			playSound(arr[i]);
 		} else stroke(0);
-		strokeWeight(3);
 		let posX = floor((w / 2) - ((arr.length * barSpacing) / 2));
-		line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - arr[i]);
-	}
+		drawLine(arr, posX, i);
+	}	
+	// let posX = floor((w / 2) - ((arr.length * barSpacing) / 2));
+	// beginShape();
+	// vertex(posX, h);
+	// for (let i = 0; i < arr.length; i++) {
+	// 	if(i == idx1)stroke(cyan);
+	// 	else if(i == idx2){
+	// 		stroke(magenta);
+	// 		playSound(arr[i]);
+	// 	} else stroke(0);
+	// 	vertex(posX + i * barSpacing, (h / 2) - arr[i]);
+	// 	// drawLine(arr, posX, i);
+	// }
+	// endShape();
 }
-
+function drawLine(arr, x, index){
+	line(x + index * barSpacing, (h / 2) + arr[index], x + index * barSpacing, (h / 2) - arr[index]);	
+}
+	// line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - arr[i]);
 function playSound(num){
-	let midiValue = map(num, -range, range, 60, 100);
-	// console.log(midiValue);
+	let midiValue = map(num, 0, range, 60, 100);
     var freqValue = midiToFreq(midiValue);
     osc.freq(freqValue);
-    //osc.amp(env);
     env.play(osc, 0, 0.1);
 }
 
