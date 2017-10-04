@@ -68,11 +68,11 @@ function draw (){
 	// if(w != windowWidth || h != windowHeight)windowResized();
 }
 
-function windowResized() {
-  //resizeCanvas(windowWidth, windowHeight);
-	w = windowWidth;
-	h = windowHeight;
-}
+// function windowResized() {
+//   //resizeCanvas(windowWidth, windowHeight);
+// 	w = windowWidth;
+// 	h = windowHeight;
+// }
 
 function initSorting(){
 	if(!isPlaying){
@@ -86,6 +86,7 @@ function initSorting(){
 		if(answer == 3)bs = new mergeSort(myArrayCopy);	
 		if(answer == 4)bs = new quickSort(myArrayCopy);
 		if(answer == 5)bs = new shellSort(myArrayCopy);
+		if(answer == 6)bs = new radixSort(myArrayCopy);
 	}
 	initialized = true;
 }

@@ -18,7 +18,13 @@ function mergeSort(arr){
         next = tree[0];
         let mid = floor((next.l + next.r) / 2);
         remergeStart(mid, this.a);
-        tree.splice(0, 1);//consider revising here doing the same as in quicksort
+        for(let i = tree.length - 1; i >= 0; i--){
+            if(tree[i].r == next.r && tree[i].l == next.l){
+              tree.splice(i, 1);
+              break;
+            }
+          }
+        // tree.splice(0, 1);//consider revising here doing the same as in quicksort
         j = next.r - workR.length;
       }
     }
