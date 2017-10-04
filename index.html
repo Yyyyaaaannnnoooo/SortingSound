@@ -7,7 +7,7 @@
 	<script src="addons/p5.sound.min.js"></script>
 	<script src="sketch.js"></script>
 	<script src="bubbleSort.js"></script>
-	<script src="selectionSort.js"></script>
+	<script src="SelectionSort.js"></script>
 	<script src="insertionSort.js"></script>
 	<script src="shellSort.js"></script>
 	<script src="mergeSort.js"></script>
@@ -56,6 +56,9 @@
 		position:fixed;
 		top: 5px;
 		left: 205px;
+	}
+	body{
+		margin: 0;
 	}
 	/*styling the select element*/
 	select {
@@ -125,7 +128,7 @@
 	</div>
 	<div class="inputRange">
 		<input type="range" id="arraySize" value="50" onchange="resizeArray()">
-		<input type="range" top="55px" id="timeWarp" value="1" onchange="timeWarp()">
+		<input type="range" top="55px" id="timeWarp" value="1" min="-10" max="10" step="1" onchange="timeWarp()">
 		<button type="button" id="playPause" onclick="playPause()">PLAY</button>
 	</div>
 	<div class="array">

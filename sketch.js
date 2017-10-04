@@ -4,8 +4,8 @@ let bs, osc, fft, env,//audio is the sound library
 	range,//declare global min and max sorting number as constant!!
 	arraySize = 50, myArray = [],//, myArrayCopy = [];
 	arraySizeSlider, 
-	barSpacing = 5, w, h, 
-	initialized = false, play = false, isPlaying = false,//consider adding a pause function
+	barSpacing = 5, w, h, prevW, prevH, counter = 0, finalCount = 0,
+		initialized = false, play = false, isPlaying = false,//consider adding a pause function
 	mono, BGText, txtCanvas, speedController = 1;//monospace font
 
 function preload(){
@@ -13,12 +13,15 @@ function preload(){
 }
 function setup(){
 	pixelDensity(1);
-	w = window.innerWidth;
-	h = window.innerHeight;
-	let cnv = createCanvas(w, h);
+	w = windowWidth;
+	h = windowHeight;
+	prevW = w;
+	prevH = h;
+	createCanvas(w - 15, h - 25);
 	cyan = color(0, 255, 255);
 	magenta = color(255, 0, 255);
 	background(51);
+	textSize(32);
 	range = h / 2 - 100;
 	myArray = filltheArray(myArray, arraySize);
 	// initialize the sound library
@@ -34,10 +37,12 @@ function setup(){
 }
 
 function draw (){
-	// background(255);
+	background(255);
 	noStroke();
-	fill(255, 20);
-	rect(0, 0, w, h);
+	// strokeWeight(5);
+	// stroke(0);
+	// fill(255, 15);
+	// rect(0, 0, w, h);
 	if(bs != null){
 		if(speedController > 0){
 			for(let i = 0; i < speedController; i++)bs.update(play);
@@ -46,12 +51,24 @@ function draw (){
 		}
 		bs.show();
 		if(bs.done){
+			if(counter != 0)finalCount = counter;
+			counter = 0;
 			play = false;
 			document.getElementById("playPause").innerHTML = 'PLAY';
 		}
+		if(!bs.done && play)counter ++;
 	}else{
 		show(myArray, null, null, false);
 	}
+	// fill()
+	text(counter + "\n" + finalCount, 100, 100);
+	// if(w != windowWidth || h != windowHeight)windowResized();
+}
+
+function windowResized() {
+  //resizeCanvas(windowWidth, windowHeight);
+	w = windowWidth;
+	h = windowHeight;
 }
 
 function initSorting(){
@@ -98,7 +115,7 @@ function setWave(){
 function timeWarp(){
 	let input = document.getElementById("timeWarp").value;
 	console.log(input);
-	speedController = floor(map(input, 0, 100, -10, 10));
+	speedController = input;//floor(map(input, 0, 100, -10, 10));
 	if(speedController == 0)speedController = 1;
 	//if(speedController >= 0)speedController = floor(speedController);
 }
