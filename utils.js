@@ -25,7 +25,10 @@ function show(arr, idx1, idx2){
 	// endShape();
 }
 function drawLine(arr, x, index){
-	line(x + index * barSpacing, (h / 2) + arr[index], x + index * barSpacing, (h / 2) - arr[index]);	
+	// rectMode(CENTER);	
+	// fill(map(index, 0, arr.length, 0, 255), 100, 0);
+	// rect(w / 2, h / 2, arr[index] * -2, arr[index] * 2)
+	line(x + index * barSpacing, (h / 2) + arr[index], x + index * barSpacing, (h / 2) - arr[index]);
 }
 	// line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - arr[i]);
 function playSound(num){

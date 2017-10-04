@@ -18,6 +18,7 @@ function setup(){
 	prevW = w;
 	prevH = h;
 	createCanvas(w - 15, h - 25);
+  	// ortho(-width/2, width/2, height/2, -height/2, 0, 500);
 	cyan = color(0, 255, 255);
 	magenta = color(255, 0, 255);
 	background(51);
@@ -37,12 +38,12 @@ function setup(){
 }
 
 function draw (){
-	smooth();
 	// background(255);
 	noStroke();
 	// strokeWeight(5);
 	// stroke(0);
 	// alpha = map(mouseX, 0, w, 0, 255);
+	rectMode(CORNER);
 	fill(255, alpha);
 	rect(0, 0, w, h);
 	if(bs != null){
@@ -63,7 +64,7 @@ function draw (){
 		show(myArray, null, null, false);
 	}
 	// fill()
-	text(counter + "\n" + finalCount, 100, 300);
+	// text(counter + "\n" + finalCount, 100, 300);
 	// if(w != windowWidth || h != windowHeight)windowResized();
 }
 
