@@ -1,6 +1,6 @@
 
 let bs, osc, fft, env,//audio is the sound library
-	cyan, magenta,
+	cyan, magenta, alpha = 15,
 	range,//declare global min and max sorting number as constant!!
 	arraySize = 50, myArray = [],//, myArrayCopy = [];
 	arraySizeSlider, 
@@ -37,12 +37,14 @@ function setup(){
 }
 
 function draw (){
-	background(255);
+	smooth();
+	// background(255);
 	noStroke();
 	// strokeWeight(5);
 	// stroke(0);
-	// fill(255, 15);
-	// rect(0, 0, w, h);
+	// alpha = map(mouseX, 0, w, 0, 255);
+	fill(255, alpha);
+	rect(0, 0, w, h);
 	if(bs != null){
 		if(speedController > 0){
 			for(let i = 0; i < speedController; i++)bs.update(play);
@@ -61,7 +63,7 @@ function draw (){
 		show(myArray, null, null, false);
 	}
 	// fill()
-	text(counter + "\n" + finalCount, 100, 100);
+	text(counter + "\n" + finalCount, 100, 300);
 	// if(w != windowWidth || h != windowHeight)windowResized();
 }
 
@@ -97,7 +99,8 @@ function filltheArray(arr, arrSize){
 
 function resizeArray(){
 	let theArraySize = document.getElementById("arraySize").value;
-	theArraySize = floor(map(theArraySize, 0, 100, 20, floor(w / barSpacing)));	
+	theArraySize = floor(map(theArraySize, 20, 200, 20, floor(w / barSpacing)));	
+	document.getElementById("theArraySize").innerHTML = 'ARRAY SIZE: ' + theArraySize;
 	console.log(theArraySize);
 	myArray = filltheArray(myArray, theArraySize);
 	if(initialized)initSorting()
@@ -117,8 +120,10 @@ function timeWarp(){
 	console.log(input);
 	speedController = input;//floor(map(input, 0, 100, -10, 10));
 	if(speedController == 0)speedController = 1;
+	document.getElementById("time").innerHTML = 'SPEED: ' + speedController;
 	//if(speedController >= 0)speedController = floor(speedController);
 }
+
 function playPause(){//add a ot of stuff like what when the 
 	play = !play;
 	setWave();
@@ -135,4 +140,10 @@ function playPause(){//add a ot of stuff like what when the
 	document.getElementById("playPause").innerHTML = txt;
 }
 
+function changeAlpha(){
+	alpha = floor(document.getElementById("alpha").value);
+	console.log(alpha);
+	let txt = alpha.toString();
+	document.getElementById("alphaChannel").innerHTML = 'ALPHA: ' + txt;
+}
 
