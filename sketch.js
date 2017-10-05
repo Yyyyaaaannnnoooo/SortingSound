@@ -5,7 +5,7 @@ let bs, osc, fft, env,//audio is the sound library
 	arraySize = 50, myArray = [],//, myArrayCopy = [];
 	arraySizeSlider, 
 	barSpacing = 5, w, h, prevW, prevH, counter = 0, finalCount = 0,
-		initialized = false, play = false, isPlaying = false,//consider adding a pause function
+	initialized = false, play = false, isPlaying = false,//consider adding a pause function
 	mono, BGText, txtCanvas, speedController = 1;//monospace font
 
 function preload(){
@@ -58,13 +58,15 @@ function draw (){
 			counter = 0;
 			play = false;
 			document.getElementById("playPause").innerHTML = 'PLAY';
+			stop();
 		}
-		if(!bs.done && play)counter ++;
 	}else{
 		show(myArray, null, null, false);
 	}
-	// fill()
-	// text(counter + "\n" + finalCount, 100, 300);
+	showTime();
+	//console.log(frameRate());
+	//fill(0);
+	//text(counter + "\n" + finalCount, 100, 300);
 	// if(w != windowWidth || h != windowHeight)windowResized();
 }
 
@@ -80,6 +82,10 @@ function initSorting(){
 		let answer = select.options[select.selectedIndex].value;
 		let myArrayCopy = [];
 		arrayCopy(myArray, myArrayCopy, myArray.length);
+		//stopwatch
+		reset();
+		if(play)start();
+		//
 		if(answer == 0)bs = new bubbleSort(myArrayCopy);
 		if(answer == 1)bs = new selectionSort(myArrayCopy);
 		if(answer == 2)bs = new insertionSort(myArrayCopy);
@@ -135,9 +141,11 @@ function playPause(){//add a ot of stuff like what when the
 	if(play){
 		txt = 'PAUSE';
 		volumeUp();
+		start();
 		}else{
 			txt = 'PLAY';
 			volume0();
+			stop();
 		}
 	document.getElementById("playPause").innerHTML = txt;
 }

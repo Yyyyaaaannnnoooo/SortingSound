@@ -14,12 +14,12 @@ function radixSort(arr){
   let len = this.a.length, max = Math.floor(Math.log10(Math.max.apply(Math,this.a))),  
       // get the length of digits of the max value in this array
       digitBuckets = [],idx = 0, i = 0, /*j = 0,*/ t = 0, g = 0, jDone = false, tDone = false;
-      generateDigitBucket();
+      generateDigitBucket(this.a);
       this.update = function(playing){ 
         if(!this.done && playing){
       //here the steps
       if(t >= digitBuckets.length){
-        generateDigitBucket();
+        generateDigitBucket(this.a);
         idx = 0;
         t = 0;
         i++;
@@ -33,7 +33,7 @@ function radixSort(arr){
     }
   }
   this.show = function(){
-    show(this.a, t, g);
+    show(this.a, t, idx);
   }
 
   function radixStep(arr){
@@ -51,7 +51,7 @@ function radixSort(arr){
       }
     }
 
-    function generateDigitBucket(){
+    function generateDigitBucket(arr){
       digitBuckets = [];
       for(let j = 0;j < len; j++){//do this only if the t loop is not done yet
         let digit = getDigit(arr[j],i+1);

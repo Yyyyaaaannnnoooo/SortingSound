@@ -16,7 +16,23 @@
 	<script src="quickSort.js"></script>
 	<script src="radixSort.js"></script>
 	<script src="utils.js"></script>
+	<!--<script src="stopwatch.js"></script>-->
 	<style>
+	/*class stopwatch*/
+	.stpwatch{
+		position: absolute;
+		left: 5px;
+		top: 305px;
+		background: #fff;
+		color: #000;
+		font-family: Helvetica;
+		font-weight: bolder;
+		font-size: 20px;
+		border: solid 3px #000;
+		cursor: ne-resize;
+		z-index: 1;
+		padding: 5px 5px 3px 5px;
+	}
 	/*class array text*/
 	.array{
 		text-align: justify;
@@ -186,11 +202,12 @@
 		<input type="range" style="top: 205px" id="alpha" value="15" min="0" max="255" step="1" onchange="changeAlpha()">
 		<button type="button" style="top: 255px;" id="playPause" onclick="playPause()">PLAY</button>
 	</div>
-	<div class="top" id="theArraySize">ARRAY SIZE: 20</div>
+	<div class="top" id="theArraySize">ARRAY SIZE: 50</div>
 	<div class="middle" id="time">SPEED: 1</div>
 	<div class="bottom" id="alphaChannel">ALPHA: 15</div>
-	<div class="array">
-		<p id="txtCanvas"></p>
-	</div>
+	<div class="stpwatch" id="time2">00:00:00:000</div>
+	<!--<input type="button" style="top: 305px;" value="start" onclick="start();">
+	<input type="button" style="top: 355px;" value="stop" onclick="stop()">
+	<input type="button" style="top: 405px;" value="reset" onclick="reset()">-->
 </body>
 </html>
