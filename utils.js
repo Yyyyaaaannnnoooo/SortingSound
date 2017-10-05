@@ -1,3 +1,8 @@
+/*
+THIS IS THE FUNCTION THAT IS CALLED BY THE SORTING CLASSES
+IT GETS THE ARRAY AND TWO INDEXES AS ARGUMENT
+IT IS USED TO COLOR THE BARS WITH DIFFERENT COLORS
+*/
 function show(arr, idx1, idx2){
 	strokeWeight(3);
 	noFill();
@@ -10,34 +15,21 @@ function show(arr, idx1, idx2){
 		let posX = floor((w / 2) - ((arr.length * barSpacing) / 2));
 		drawLine(arr, posX, i);
 	}	
-	// let posX = floor((w / 2) - ((arr.length * barSpacing) / 2));
-	// beginShape();
-	// vertex(posX, h);
-	// for (let i = 0; i < arr.length; i++) {
-	// 	if(i == idx1)stroke(cyan);
-	// 	else if(i == idx2){
-	// 		stroke(magenta);
-	// 		playSound(arr[i]);
-	// 	} else stroke(0);
-	// 	vertex(posX + i * barSpacing, (h / 2) - arr[i]);
-	// 	// drawLine(arr, posX, i);
-	// }
-	// endShape();
 }
+/**
+THIS IS THE DRAWING FUNCTION, IT GETS THREE ARGUMENTS
+IT IS TAUGHT TO DISPLAY THE ELEMENTS ALONG THE X AXIS
+*/
 function drawLine(arr, x, index){
-	// rectMode(CENTER);	
-	// fill(map(index, 0, arr.length, 0, 255), 100, 0);
-	// rect(w / 2, h / 2, arr[index] * -2, arr[index] * 2)
 	line(x + index * barSpacing, (h / 2) + arr[index], x + index * barSpacing, (h / 2) - arr[index]);
 }
-	// line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - arr[i]);
 function playSound(num){
 	let midiValue = map(num, 0, range, 60, 100);
     var freqValue = midiToFreq(midiValue);
     osc.freq(freqValue);
     env.play(osc, 0, 0.1);
 }
-
+//THIS FUNCTION CHECKS IF AN ARRAY IS SORTED AND RETURNS TRUE OR FALSE
 function isSorted(arr) {
 	let sorted = true;
 	for (let i = 0; i < arr.length - 1; i++) {
@@ -48,17 +40,17 @@ function isSorted(arr) {
 	}
 	return sorted;
 }
+//THE FLLOWING FUNCTIONS TURN ON AND OFF THE SOUND
 function volume0(){
 	masterVolume(0, 0.5);
 }
-
 function volumeUp(){	
 	masterVolume(1, 0.5);
 }
 
 
 /***********************************************************
-
+STOPWATCH CLASS
 Copyright (c) 2010-2015 Giulia Alfonsi <electric.g@gmail.com>
 
 Permission is hereby granted, free of charge, to any person
@@ -84,25 +76,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 **************************************************************/
 
-
-//	Simple example of using private variables
-//
-//	To start the stopwatch:
-//		obj.start();
-//
-//	To get the duration in milliseconds without pausing / resuming:
-//		let	x = obj.time();
-//
-//	To pause the stopwatch:
-//		let	x = obj.stop();	// Result is duration in milliseconds
-//
-//	To resume a paused stopwatch
-//		let	x = obj.start();	// Result is duration in milliseconds
-//
-//	To reset a paused stopwatch
-//		obj.stop();
-//
-//stopWatch variables
 let x = new Stopwatch();
 let time, clocktimer;
 function Stopwatch () {

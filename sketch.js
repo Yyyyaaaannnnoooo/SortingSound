@@ -54,8 +54,6 @@ function draw (){
 		}
 		bs.show();
 		if(bs.done){
-			if(counter != 0)finalCount = counter;
-			counter = 0;
 			play = false;
 			document.getElementById("playPause").innerHTML = 'PLAY';
 			stop();
@@ -64,17 +62,7 @@ function draw (){
 		show(myArray, null, null, false);
 	}
 	showTime();
-	//console.log(frameRate());
-	//fill(0);
-	//text(counter + "\n" + finalCount, 100, 300);
-	// if(w != windowWidth || h != windowHeight)windowResized();
 }
-
-// function windowResized() {
-//   //resizeCanvas(windowWidth, windowHeight);
-// 	w = windowWidth;
-// 	h = windowHeight;
-// }
 
 function initSorting(){
 	if(!isPlaying){
@@ -129,7 +117,6 @@ function timeWarp(){
 	speedController = input;//floor(map(input, 0, 100, -10, 10));
 	if(speedController == 0)speedController = 1;
 	document.getElementById("time").innerHTML = 'SPEED: ' + speedController;
-	//if(speedController >= 0)speedController = floor(speedController);
 }
 
 function playPause(){//add a ot of stuff like what when the 
