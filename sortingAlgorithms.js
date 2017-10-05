@@ -438,7 +438,7 @@ function radixSort(arr){
     }
   }
   this.show = function(){
-    show(this.a, t, idx);
+    show(this.a, i, idx);
   }
 
   function radixStep(arr){
