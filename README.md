@@ -21,7 +21,7 @@ Really useful explanation and JavaScript codes can be found at the following blo
 <ul>
 <li><a href="https://khan4019.github.io/front-end-Interview-Questions/sort.html#bubbleSort">JS: Interview Questions
 Sort related interview questions for intermediate JavaScript developers</a> by <a href="https://github.com/khan4019">That JS Dude</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a></li>
+<li><a href="http://blog.benoitvallon.com/sorting-algorithms-in-javascript/sorting-algorithms-in-javascript-all-the-code/">Sorting algorithms in JavaScript, all the code</a> by <a href="http://blog.benoitvallon.com">Benoit Vallon</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a></li>
