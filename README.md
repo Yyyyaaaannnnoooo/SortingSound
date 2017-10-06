@@ -17,6 +17,18 @@ For each sorting algorithm I created a class that takes an array of numbers as a
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
 The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.
 <h2>References</h2>
+Really useful explanation and JavaScript codes can be found at the following blogs and websites
+<ul>
+<li><a href="https://khan4019.github.io/front-end-Interview-Questions/sort.html#bubbleSort">JS: Interview Questions
+Sort related interview questions for intermediate JavaScript developers</a> by <a href="https://github.com/khan4019">That JS Dude</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort">Shell Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></li>
+<li>...more to come</li>
+</ul>
 <h2>BUGS</h2>
 <ul>
   <li>shell sort needs to be fixed, it does not sort completely</li>
