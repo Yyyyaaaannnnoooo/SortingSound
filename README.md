@@ -15,10 +15,15 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 <h2>How it works</h2>
 For each sorting algorithm I created a class that takes an array of numbers as argument, with a <code>show()</code> and <code>update()</code> function.
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
-The <code>update()</code> function executes step by step the algorithm. The algorithm have benn broken down from being loops and recursion to step by step algorithm.
+The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.
 <h2>References</h2>
 <h2>BUGS</h2>
 <ul>
-  <li>shell sort</li>
-  <li>buggy play button, only in safari</li>
+  <li>shell sort needs to be fixed, it does not sort completely</li>
+  <li>some problems with safari, the play button does not work properly. It works on any other browser</li>
+</ul>
+<h2>TO DO</h2>
+<ul>
+  <li>Use class prototypes</li>
+  <li>Add new sorting algorithms</li>
 </ul>
