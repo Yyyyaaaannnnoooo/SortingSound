@@ -6,10 +6,11 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 <li><a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a></li>
-<li><a href="">Merge Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Shellsort">Shell Sort</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></li>
+<li>...more to come</li>
 </ul>
 <h2>BUGS</h2>
 <ul>
