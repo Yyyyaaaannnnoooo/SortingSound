@@ -193,7 +193,7 @@ function mergeSort(arr){
         next = tree[0];
         let mid = floor((next.l + next.r) / 2);
         remergeStart(mid, this.a);
-        //HERE WE REMOVE THE NEXT FROM THE TREE ARRAY
+        //HERE WE REMOVE NEXT FROM THE TREE ARRAY
         for(let i = tree.length - 1; i >= 0; i--){
             if(tree[i].r == next.r && tree[i].l == next.l){
               tree.splice(i, 1);
@@ -329,8 +329,7 @@ function quickSort(arr){
       } else stroke(0);
       strokeWeight(3);
       let posX = floor((w / 2) - ((this.a.length * barSpacing) / 2));      
-      drawLine(arr, posX, i);
-      // line(posX + i * barSpacing, (height / 2), posX + i * barSpacing, (height / 2) - this.a[i]);
+      drawLine(this.a, posX, i);
     }
   }
 
@@ -418,7 +417,7 @@ function radixSort(arr){
   this.a = arr;
   let len = this.a.length, max = Math.floor(Math.log10(Math.max.apply(Math,this.a))),  
       // get the length of digits of the max value in this array
-      digitBuckets = [],idx = 0, i = 0, /*j = 0,*/ t = 0, g = 0, jDone = false, tDone = false;
+      digitBuckets = [],idx = 0, i = 0, t = 0, g = 0, jDone = false, tDone = false;
       generateDigitBucket(this.a);
       this.update = function(playing){ 
         if(!this.done && playing){
