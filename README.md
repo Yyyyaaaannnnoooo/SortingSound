@@ -23,10 +23,8 @@ Really useful explanation and JavaScript codes can be found at the following blo
 Sort related interview questions for intermediate JavaScript developers</a> by <a href="https://github.com/khan4019">That JS Dude</a></li>
 <li><a href="http://blog.benoitvallon.com/sorting-algorithms-in-javascript/sorting-algorithms-in-javascript-all-the-code/">Sorting algorithms in JavaScript, all the code</a> by <a href="http://blog.benoitvallon.com">Benoit Vallon</a></li>
 <li><a href="https://github.com/jcjohnson/sorting.js">sorting.js</a> another sorting web application made by <a href="https://github.com/jcjohnson">Justin Johnson</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Shellsort">Shell Sort</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></li>
+<li><a href="https://taoalpha.github.io/blog/2016/01/19/tech-javascript-sorting-algorithm-radix-sort/">JavaSript Sorting Algorithm - Radix Sort and Bucket Sort</a>Useful for understanding radix sort, made by <a href="https://github.com/taoalpha">taoalpha</a></li>
+<li><a href="https://github.com/timgrohmann/sorting-algorithms-visualized">Sorting Algorithms Visualized</a> a nice <a href="https://processing.org">Processing</a> based visualiztion of different sorting algorithm, made by <a href="https://github.com/timgrohmann">Tim Grohmann</a></li>
 <li>...more to come</li>
 </ul>
 <h2>BUGS</h2>
