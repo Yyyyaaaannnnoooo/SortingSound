@@ -37,7 +37,6 @@ function bubbleSort(arr){
 			}
 			if(i <= 0 || isSorted(this.a)){
 				this.done = true;
-				osc.amp(0, 1);
 				volume0();
 			}
 		}
@@ -403,21 +402,11 @@ function quickSort(arr){
                                                                
   */
 function radixSort(arr){
-  // helper function to get the last nth digit of a number
-  function getDigit (num,nth){
-    // get last nth digit of a number
-    let ret = 0;
-    while(nth--){
-      ret = num % 10
-      num = Math.floor((num - ret) / 10)
-    }
-    return ret
-  }
   this.done = false;
   this.a = arr;
   let len = this.a.length, max = Math.floor(Math.log10(Math.max.apply(Math,this.a))),  
       // get the length of digits of the max value in this array
-      digitBuckets = [],idx = 0, i = 0, t = 0, g = 0, jDone = false, tDone = false;
+      digitBuckets = [],idx = 0, i = 0, t = 0, g = 0, jDone = false, tDone = false, swapIdx;
       generateDigitBucket(this.a);
       this.update = function(playing){ 
         if(!this.done && playing){
@@ -431,21 +420,26 @@ function radixSort(arr){
       radixStep(this.a);
       if(isSorted(this.a)){
         this.done = true;
-        console.log("done");
         volume0();
       }
     }
   }
   this.show = function(){
-    show(this.a, i, idx);
+    show(this.a, swapIdx, idx);
   }
 
   function radixStep(arr){
-      //idx = 0
       if(t < digitBuckets.length){
         if(digitBuckets[t] && digitBuckets[t].length > 0){
           if(g < digitBuckets[t].length){
-            arr[idx++] = digitBuckets[t][g];
+          	for(let ii = 0; ii < len; ii++){
+          		if(arr[ii] == digitBuckets[t][g]){
+	          		swapIdx = ii;
+	          		break;
+	          	}
+          	}
+            arr[idx] = digitBuckets[t][g];
+            idx++;
             g++;
             return;
           }else g = 0;
@@ -457,12 +451,22 @@ function radixSort(arr){
 
     function generateDigitBucket(arr){
       digitBuckets = [];
-      for(let j = 0;j < len; j++){//do this only if the t loop is not done yet
-        let digit = getDigit(arr[j],i+1);
+      for(let j = 0;j < len; j++){
+        let digit = getDigit(arr[j], i + 1);
         digitBuckets[digit] = digitBuckets[digit] || [];
         digitBuckets[digit].push(arr[j]);
       }
     }
+    // helper function to get the last nth digit of a number
+	function getDigit (num,nth){
+	    // get last nth digit of a number
+	    let ret = 0;
+	    while(nth--){
+	      ret = num % 10
+	      num = Math.floor((num - ret) / 10)
+	    }
+	    return ret
+	}
   }
 
   /**
