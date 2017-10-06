@@ -25,7 +25,6 @@ Sort related interview questions for intermediate JavaScript developers</a> by <
 <li><a href="https://github.com/jcjohnson/sorting.js">sorting.js</a> another sorting web application made by <a href="https://github.com/jcjohnson">Justin Johnson</a></li>
 <li><a href="https://taoalpha.github.io/blog/2016/01/19/tech-javascript-sorting-algorithm-radix-sort/">JavaSript Sorting Algorithm - Radix Sort and Bucket Sort</a>Useful for understanding radix sort, made by <a href="https://github.com/taoalpha">taoalpha</a></li>
 <li><a href="https://github.com/timgrohmann/sorting-algorithms-visualized">Sorting Algorithms Visualized</a> a nice <a href="https://processing.org">Processing</a> based visualiztion of different sorting algorithm, made by <a href="https://github.com/timgrohmann">Tim Grohmann</a></li>
-<li>...more to come</li>
 </ul>
 <h2>BUGS</h2>
 <ul>
