@@ -14,6 +14,7 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 </ul>
 <h2>How it works</h2>
 For each sorting algorithm I created a class that takes an array of numbers as argument, with a `show()` and `update()` function.
+`code`
 The `show()` function displays the array as it is sorted by the algorithm.
 The `update()` function executes step by step the algorithm. The algorithm have benn broken down from being loops and recursion to step by step algorithm.
 <h2>References</h2>
