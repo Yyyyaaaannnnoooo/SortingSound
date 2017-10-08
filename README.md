@@ -36,4 +36,5 @@ Sort related interview questions for intermediate JavaScript developers</a> by <
 <ul>
   <li>Use class prototypes</li>
   <li>Add new sorting algorithms</li>
+  <li>Improve the <code>show</code> function</li>
 </ul>
