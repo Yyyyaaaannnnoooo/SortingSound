@@ -18,12 +18,12 @@ For each sorting algorithm I created a class that takes an array of numbers as a
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
 The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.<br>
 Every sorting alghoritm class has a <code>show(array, index1, index2)</code> function, the two arguments <code>index1 index2</code> define with cyan the the element to check and with magenta the swap. The <code>show(array, index1, index2)</code> also calles the <code>playSound(array[index2])</code> function, that maps the value of the array in position <code>index2</code> to a a midi tone.<br>
-<code>function playSound(num){
-	let midiValue = map(num, 0, range, 60, 100);
-    var freqValue = midiToFreq(midiValue);
-    osc.freq(freqValue);
-    env.play(osc, 0, 0.1);
-}
+<code>function playSound(num){<br>
+let midiValue = map(num, 0, range, 60, 100);<br>
+var freqValue = midiToFreq(midiValue);<br>
+osc.freq(freqValue);<br>
+env.play(osc, 0, 0.1);<br>
+}<br>
 </code>
 <p>
   <img src="https://user-images.githubusercontent.com/17408277/31335127-7fff60b6-acf1-11e7-9cce-11953c98b9da.png"/>
