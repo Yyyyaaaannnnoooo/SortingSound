@@ -6,7 +6,7 @@ let SortAlg, osc, fft, env,//audio is the sound library
 	barSpacing = 5, w, h,
 	initialized = false, play = false,
 	mono, speedController = 1;//monospace font
-
+const leftMargin = 345;
 function preload(){
 	mono = loadFont("font/SourceCodePro-Bold.otf");//THIS CAN BE USED FOR SOME TEXT INSIDE THE SKETCH
 }
@@ -73,7 +73,8 @@ function initSorting(){
 	if(answer == 3)SortAlg = new mergeSort(myArrayCopy);	
 	if(answer == 4)SortAlg = new quickSort(myArrayCopy);
 	if(answer == 5)SortAlg = new shellSort(myArrayCopy);
-	if(answer == 6)SortAlg = new radixSort(myArrayCopy);
+	if(answer == 6)SortAlg = new radixSort(myArrayCopy);	
+	if(answer == 7)SortAlg = new countingSort(myArrayCopy);
 	initialized = true;
 }
 //HERE WE CREATE AN ARRAY OF RANDOM INTEGERS
@@ -87,9 +88,10 @@ function filltheArray(arr, arrSize){
 //THIS FUNCTION RESIZES THE ARRAY ACCORDING TO THE SIZE OF THE WINDOW
 function resizeArray(){
 	let theArraySize = document.getElementById("arraySize").value;
-	theArraySize = floor(map(theArraySize, 20, 200, 20, floor(w / barSpacing)));	
+	let ww = w - (leftMargin + 10);
+	theArraySize = floor(map(theArraySize, 20, 200, 20, floor(ww / barSpacing)));	
 	document.getElementById("theArraySize").innerHTML = 'ARRAY SIZE: ' + theArraySize;
-	console.log(theArraySize);
+	console.log('ww'+ww);
 	myArray = filltheArray(myArray, theArraySize);
 	if(initialized)initSorting();//IF THE SORTING HAS BEEN ALREADY INITIALIZED RESIZE IT
 }

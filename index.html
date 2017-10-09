@@ -10,6 +10,24 @@
 	<script src="utils.js"></script>
 	<!--<script src="stopwatch.js"></script>-->
 	<style>
+	/*class description*/
+	.description{
+		position: absolute;
+		left: 5px;
+		top: 355px;
+		width: 320px;
+		background: #fff;
+		color: #000;
+		font-family: Helvetica;
+		font-weight: bolder;
+		font-size: 15px;
+		border: solid 3px #000;
+		z-index: 1;
+		padding: 5px 5px 3px 5px;
+	}
+	/*.description txt{
+		background: #fff;
+	}
 	/*class stopwatch*/
 	.stpwatch{
 		position: absolute;
@@ -166,6 +184,17 @@
 		font-size: 20px;
 		padding-top: 3px;
 	}
+	blockquote{
+		font-style: italic;
+		font-size: 13px;
+	}
+	a{
+		color: #f00;
+		border-bottom: none;
+	}
+	a:hover{
+		letter-spacing: 3px;
+	}
 </style>
 </head>
 <body bgcolor="#FFF">
@@ -178,6 +207,7 @@
 			<option value="4">QUICK SORT</option>
 			<option value="5">SHELL SORT</option>
 			<option value="6">RADIX SORT</option>
+			<option value="7">COUNTING SORT</option>
 		</select>
 	</div>
 	<div class="waves">
@@ -198,6 +228,14 @@
 	<div class="middle" id="time">SPEED: 1</div>
 	<div class="bottom" id="alphaChannel">ALPHA: 15</div>
 	<div class="stpwatch" id="time2">00:00:00:000</div>
+	<div class="description">
+		<txt>AlgorhythmicSorting WEB application
+		<blockquote>
+		AlgorhythmicSorting is an open source program and learning tool for people, who want to learn and analyze the diversity of sorting algorithms by hearing the different rhythmic and pattern generating behaviour of different sorting algorithms like bubble sort, merge sort, quick sort or heap sort and others. It shall be used by students, sound artists, researchers and hobbyists to learn the rhythmic basics of algorithms.
+		</blockquote>
+		Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsorting"> Shintaro Miyazaki</a> this web applications shows the behaviour of different sorting algorithms on a random list of numbers. The web application has been written in <a href="https://p5js.org">p5.js</a>, a JavaScript library similar to <a href="https://processing.org">Processing</a>.<br><br>
+		<a href="https://github.com/atomicCoders/SortingSound">FORK ME ON GITHUB</a></txt>
+	</div>
 	<!--<input type="button" style="top: 305px;" value="start" onclick="start();">
 	<input type="button" style="top: 355px;" value="stop" onclick="stop()">
 	<input type="button" style="top: 405px;" value="reset" onclick="reset()">-->

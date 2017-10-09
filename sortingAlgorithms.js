@@ -327,7 +327,7 @@ function quickSort(arr){
         playSound(this.a[i]);
       } else stroke(0);
       strokeWeight(3);
-      let posX = floor((w / 2) - ((this.a.length * barSpacing) / 2));      
+      let posX = leftMargin;//floor((w / 2) - ((this.a.length * barSpacing) / 2));      
       drawLine(this.a, posX, i);
     }
   }
@@ -468,6 +468,61 @@ function radixSort(arr){
 	    return ret
 	}
   }
+  /**
+   ________  ________  ___  ___  ________   _________  ___  ________   ________     
+|\   ____\|\   __  \|\  \|\  \|\   ___  \|\___   ___\\  \|\   ___  \|\   ____\    
+\ \  \___|\ \  \|\  \ \  \\\  \ \  \\ \  \|___ \  \_\ \  \ \  \\ \  \ \  \___|    
+ \ \  \    \ \  \\\  \ \  \\\  \ \  \\ \  \   \ \  \ \ \  \ \  \\ \  \ \  \  ___  
+  \ \  \____\ \  \\\  \ \  \\\  \ \  \\ \  \   \ \  \ \ \  \ \  \\ \  \ \  \|\  \ 
+   \ \_______\ \_______\ \_______\ \__\\ \__\   \ \__\ \ \__\ \__\\ \__\ \_______\
+    \|_______|\|_______|\|_______|\|__| \|__|    \|__|  \|__|\|__| \|__|\|_______|
+                                                                                  
+                                                                                  
+                                                                                  
+ ________  ________  ________  _________                                          
+|\   ____\|\   __  \|\   __  \|\___   ___\                                        
+\ \  \___|\ \  \|\  \ \  \|\  \|___ \  \_|                                        
+ \ \_____  \ \  \\\  \ \   _  _\   \ \  \                                         
+  \|____|\  \ \  \\\  \ \  \\  \|   \ \  \                                        
+    ____\_\  \ \_______\ \__\\ _\    \ \__\                                       
+   |\_________\|_______|\|__|\|__|    \|__|                                       
+   \|_________|                                                                   
+******************************************************
+NOT WORKING YET                                                                              
+*/
+function countingSort(arr){
+  this.done = false;
+  this.a = arr;
+  let len = this.a.length, bucket = [],idx = 0, i = 0;
+  // assign each element to its bucket
+  for(let j = 0; j < len; j++){
+    bucket[this.a[j]] = bucket[this.a[j]] || 0;
+    bucket[this.a[j]] ++;
+  }
+      this.update = function(playing){ 
+        if(!this.done && playing){
+          //here the steps
+          countingSortStep(this.a);
+          if(isSorted(this.a)){
+          this.done = true;
+          volume0();
+        }
+    }
+  }
+  this.show = function(){
+    show(this.a, idx, i);
+  }
+  function countingSortStep(arr){
+    if(i < bucket.length){
+      if(bucket[i] && bucket[i] > 0){
+        arr[idx++] = i;
+        bucket[i]--;
+        return;
+      }
+      i++;
+    }
+  }
+}
 
   /**
  ________  ___  ___  _______   ___       ___          

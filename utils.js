@@ -12,7 +12,7 @@ function show(arr, idx1, idx2){
 			stroke(magenta);
 			playSound(arr[i]);
 		} else stroke(0);
-		let posX = floor((w / 2) - ((arr.length * barSpacing) / 2));
+		let posX = leftMargin;// + floor((w / 2) - ((arr.length * barSpacing) / 2));
 		drawLine(arr, posX, i);
 	}	
 }
