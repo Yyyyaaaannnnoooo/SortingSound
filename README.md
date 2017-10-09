@@ -17,7 +17,7 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 For each sorting algorithm I created a class that takes an array of numbers as argument, with a <code>show()</code> and <code>update()</code> function.
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
 The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.
-[[https://github.com/atomicCoders/SortingSound/master/img/Diagram.png|alt=octocat]]
+[[https://github.com/atomicCoders/SortingSound/blob/master/img/Diagram.png|alt=octocat]]
 <h2>References</h2>
 Really useful explanation and JavaScript codes can be found at the following blogs and websites
 <ul>
