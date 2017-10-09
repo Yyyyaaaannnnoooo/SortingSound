@@ -20,7 +20,6 @@ The <code>update()</code> function executes step by step the algorithm. The algo
 <p>
   <img src="https://user-images.githubusercontent.com/17408277/31335127-7fff60b6-acf1-11e7-9cce-11953c98b9da.png"/>
 </p>
-![Diagram](https://github.com/atomicCoders/SortingSound/img/Diagram.png)
 <h2>References</h2>
 Really useful explanation and JavaScript codes can be found at the following blogs and websites
 <ul>
