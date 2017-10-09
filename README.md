@@ -17,7 +17,7 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 For each sorting algorithm I created a class that takes an array of numbers as argument, with a <code>show()</code> and <code>update()</code> function.
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
 The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.<br>
-The sorting alghoritm class has a <code>show(array, index1, index2)</code> function, the two arguments <code>index1 index2</code> define with cyan the the element to check and with magenta the swap
+Every sorting alghoritm class has a <code>show(array, index1, index2)</code> function, the two arguments <code>index1 index2</code> define with cyan the the element to check and with magenta the swap
 <p>
   <img src="https://user-images.githubusercontent.com/17408277/31335127-7fff60b6-acf1-11e7-9cce-11953c98b9da.png"/>
 </p>
