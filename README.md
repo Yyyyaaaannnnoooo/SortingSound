@@ -17,7 +17,7 @@ Based on the work of <a href="http://shintaro-miyazaki.com/?work=algorhythmicsor
 For each sorting algorithm I created a class that takes an array of numbers as argument, with a <code>show()</code> and <code>update()</code> function.
 The <code>show()</code> function displays the array as it is sorted by the algorithm.
 The <code>update()</code> function executes step by step the algorithm. The algorithm have been broken down from being loops and recursion to step by step actions.<br>
-Every sorting alghoritm class has a <code>show(array, index1, index2)</code> function, the two arguments <code>index1 index2</code> define with cyan the the element to check and with magenta the swap. The <code>show(array, index1, index2)</code> also calles the <code>playSound(array[index2])</code> function, that maps the value of the array in position <code>index2</code> to a a midi tone.<br>
+Every sorting alghoritm class has a <code>show(array, index1, index2)</code> function, the two arguments <code>index1 index2</code> define with cyan the the element to check and with magenta the swap. The <code>show(array, index1, index2)</code> also calles the <code>playSound(array[index2])</code> function, that maps the value of the array in position <code>index2</code> to a a midi tone.<br><br><br>
 <code>function playSound(num){</code><br>
 <code>let midiValue = map(num, 0, range, 60, 100);</code><br>
 <code>var freqValue = midiToFreq(midiValue);</code><br>
